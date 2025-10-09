@@ -1,0 +1,133 @@
+:root {
+
+    --primary-color: rgb(10, 65, 77);
+    --secondary-color: rgb(44, 44, 43, 0.25);
+}
+
+@font-face {
+    font-family: 'Linotte';
+    src: url(./fonts/Linotte\ Bold.otf);
+    src: url(./fonts/Linotte\ Heavy.otf);
+    src: url(./fonts/Linotte\ Light.otf);
+    src: url(./fonts/Linotte\ Regular.otf);
+    src: url(./fonts/Linotte\ Semi\ Bold.otf);
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+
+body {
+
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    background: var(--primary-color);
+
+
+}
+
+
+header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 24px;
+    background: var(--secondary-color);
+    height: 96px;
+
+}
+
+
+.img_fotogram-logo_haeder {
+
+    display: flex;
+    width: 400px;
+
+}
+
+
+main {
+
+    height: 100vh;
+}
+
+
+footer {
+
+    background: var(--secondary-color);
+    height: 164px;
+}
+
+
+nav {
+
+    display: flex;
+    padding-right: 24px;
+}
+
+
+ul {
+    display: flex;
+    width: 350px;
+    height: 96px;
+    justify-content: space-around;
+    align-items: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding-inline-start: 0px;
+    color: white;
+    font-family: 'Linotte';
+    font-size: 22px;
+    list-style-type: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: rgb(241, 110, 87);
+}
+
+
+main {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+
+
+
+.all_images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+    object-fit: cover;
+
+}
+
+
+.main_images {
+    width: 150px;
+    height: 150px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+
+}
