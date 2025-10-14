@@ -113,38 +113,37 @@ main {
 
 .main_images:hover {
     transform: scale(1.3);
-    ;
 }
 
 .hidden {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 100px;
+    left: auto;
+    width: 1024px;
+    height: 768px;
     background-color: rgba(0, 0, 0, 0.85);
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.visible {
+    visibility: visible;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease-in-out;
+    border-radius: 16px;
 }
 
-#light_modal.visible {
-    visibility: visible;
-    opacity: 1;
+.bigBox {
+    width: 1024px;
+    height: 768px;
+    object-fit: cover;
+    box-shadow: 5px 5px 8px 0px var(--link_and_img-color);
+    cursor: pointer;
+    border-radius: 16px;
 }
 
-#big_box {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-#close_light_modal {
+.class_modal {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -152,12 +151,21 @@ main {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1001;
     transition: color 0.2s ease-in-out;
 }
 
-#close_light_modal:hover {
-    color: var(--link_and_img-color);
+.arrow_button {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 180px;
+    box-shadow: 0px 0px 3px 3px var(--link_and_img-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Linotte';
+    font-size: 30px;
 }
 
 .ul_footer {

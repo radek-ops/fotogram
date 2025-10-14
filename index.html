@@ -14,18 +14,24 @@
 
 <body onload="startFunction()">
     <header>
-        <img class="img_fotogram-logo_haeder" src="/img/logo/Fotogram_Logo.svg" alt="Fotogram_Logo" />
+        <img class="img_fotogram-logo_haeder" src="./img/Fotogram_Logo.svg" alt="Fotogram_Logo" />
 
 
     </header>
     <h1>Mein persönliches Fotoalbum</h1>
     <main>
 
+
+        <div class="navigation_arrows">
+            <button id="next_img" class="arrow_button">&leftarrow;</button>
+            <button id="img_back" class="arrow_button">&rightarrow;</button>
+        </div>
+
         <div class="all_images" id="all_images"></div>
 
         <div id=light_modal class="hidden">
-            <img id="big_box" src="" alt="großansicht">
-            <span id="close_light_modal">&times;</span>
+            <img id="big_box" class="bigBox" src="" alt="großansicht">
+            <span id="modal" class="class_modal">&times;</span>
         </div>
     </main>
 

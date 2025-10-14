@@ -3,7 +3,7 @@
 function startFunction() {
 
     createDiv();
-    addEventListeners();
+    bigImages();
 
 
 }
@@ -31,6 +31,17 @@ let imgArray = [
     "./img/img_23.jpg",
 ];
 
+let altTextArray = ['Ein Fels in der Brandung ', 'Strand aus der sicht des im Wasser stehenden',
+    'Ruhiges Meer und Sonnuntergang', 'Palmen am Strand bunt beleuchtet ', 'Gold-Oranger Sonnenuntergang',
+    'Nachts, Palmengasse zum Hotelzimmer schön beleuchtet', 'Blick aus einen Flugzeug, Wolken, Sonnenuntergang am Horizont',
+    'Foto von einer nahenden Wasserwelle ', 'Strand, Liegen, Sonnenschirm, lauer wolkenloser Himmel ',
+    'Eine Felsenbucht mit Turkisem Wasser', ' Ein halbrunder Steg der ins Wasser ragt, wird von einer Welle gertoffen',
+    'Sonnen untergang mit leicht rauhen Meer', ' Starnd, Blauer Himmel, Segelschiff ', 'Großer Swimmingpool, Palmen, klares blaues Wasser',
+    'Bach und ein idylischer kleiner Wasserfall', ' Grosse Steine, Meerwasser übergang von Glasklar zu Blau.',
+    'Strandhütte, hohe Palmen, turkises Wasser ', ' Sonnenuntergang, sicht vom Starnd aus ',
+    'Sonnenuntergang, die Palmenblätter und der Sommenschirm wirkrn daduch Schwarz', ' Grosser Swimmingpool nachts blau beleucht'
+];
+
 
 /* images werden hinzugefügt*/
 function createDiv() {
@@ -42,7 +53,7 @@ function createDiv() {
         let newImg = document.createElement("img");
         newImg.className = 'main_images';
         newImg.setAttribute('src', imgArray[index]);
-        newImg.setAttribute('alt', `Bild ${index + 1}`);
+        newImg.setAttribute('alt', altTextArray[index]);
 
         /*  dem (elternElement) 'main'  werden die imges zugefügt  */
         arry.appendChild(newImg);
@@ -51,28 +62,31 @@ function createDiv() {
 
 }
 
-function addEventListeners() {
+function bigImages() {
 
     let images = document.querySelectorAll('.main_images');
+    console.log(images);
     let lightModal = document.getElementById('light_modal');
     let bigBox = document.getElementById('big_box');
-    let closeLightModal = document.getElementById('close_light_modal');
+    let Modal = document.getElementById('close_light_modal');
 
-    for (let i = 0; i < images.length; i++) {
-        images[i].addEventListener('click', function() {
+    for (let index = 0; index < images.length; index++) {
+        images[index].addEventListener('click', function() {
             bigBox.src = this.src; // 'this' bezieht sich auf das geklickte Bild
-            lightModal.classList.add('visible');
+            lightModal.classList.add('visible'); //
         });
     }
 
-
-    closeLightModal.addEventListener('click', function() {
-        lightModal.classList.remove('visible'); // Entferne die 'visible' Klasse, um das Modal zu verstecken
+    /* Entferne die 'visible' Klasse, um das Modal zu verstecken */
+    lightModal.addEventListener('click', function() {
+        lightModal.classList.remove('visible');
     });
 
+    /* schließen, wenn auf den Hintergrund des Modals geklickt wird und  Entferne die 'visible' Klasse
+            }   */
     lightModal.addEventListener('click', function(e) {
-        if (e.target === lightModal) { // Nur schließen, wenn auf den Hintergrund des Modals geklickt wird
-            lightModal.classList.remove('visible'); // Entferne die 'visible' Klasse
+        if (e.target === lightModal) {
+            lightModal.classList.remove('visible');
         }
     });
 
