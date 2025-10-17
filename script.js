@@ -1,14 +1,20 @@
-/* funktions start durch  <body onload="startFunction()"> */
-
-function startFunction() {
-
-    createDiv();
-    bigImages();
+/* wichig  damit nicht ungewollt automatisch eine globale variable erstellt wird 
+ */
+'use strict';
 
 
+function init() {
+    addHolidayImgList();
+    addDialogHeaderAndCloseButton();
+    addDialogSection();
+    addImgInModalClass();
+    addDialogFooter();
+   
 }
 
-let imgArray = [
+
+
+let holidayImgList = [
     "./img/img_1.jpg",
     "./img/img_2.JPG",
     "./img/img_3.JPG",
@@ -42,52 +48,64 @@ let altTextArray = ['Ein Fels in der Brandung ', 'Strand aus der sicht des im Wa
     'Sonnenuntergang, die Palmenblätter und der Sommenschirm wirkrn daduch Schwarz', ' Grosser Swimmingpool nachts blau beleucht'
 ];
 
+/* holidayImages, dialogsRef sind statisch  */
 
-/* images werden hinzugefügt*/
-function createDiv() {
+let holidayImages = document.getElementById('holidayImages');
+let dialogsRef = document.getElementById('dialogs');
 
-    let arry = document.getElementById("all_images");
-    arry.innerHTML = ' '; /* main wird geleert  */
 
-    for (let index = 0; index < imgArray.length; index++) {
-        let newImg = document.createElement("img");
-        newImg.className = 'main_images';
-        newImg.setAttribute('src', imgArray[index]);
-        newImg.setAttribute('alt', altTextArray[index]);
 
-        /*  dem (elternElement) 'main'  werden die imges zugefügt  */
-        arry.appendChild(newImg);
-
+function addHolidayImgList() {
+    for (let index = 0; index < holidayImgList.length; index++) {
+        holidayImages.innerHTML += returnImg(index);
     }
+}
+
+
+function returnImg(getImgList) {
+    return `<img class="thumbnails" src="${holidayImgList[getImgList]}"
+          alt="${altTextArray[getImgList]}" 
+            onclick="openLargeHolidayImg('${holidayImgList[getImgList]}')"></img>`;
+}
+
+
+function addDialogHeaderAndCloseButton() {
+    dialogsRef.innerHTML += `<header id="headline" class="dialog_Header"><h2 id="imgTitle"></h2>
+    <button class="close_button" type="button" onclick="closeLargeHolidayImg()">&times;</button></header`;
 
 }
 
-function bigImages() {
 
-    let images = document.querySelectorAll('.main_images');
-    console.log(images);
-    let lightModal = document.getElementById('light_modal');
-    let bigBox = document.getElementById('big_box');
-    let Modal = document.getElementById('close_light_modal');
+function addDialogSection() {
+    dialogsRef.innerHTML += `<section id="largeHolidayImg"><img id="imgInModal"  alt="bigPicture"> </section>`;
+}
 
-    for (let index = 0; index < images.length; index++) {
-        images[index].addEventListener('click', function() {
-            bigBox.src = this.src; // 'this' bezieht sich auf das geklickte Bild
-            lightModal.classList.add('visible'); //
-        });
-    }
 
-    /* Entferne die 'visible' Klasse, um das Modal zu verstecken */
-    lightModal.addEventListener('click', function() {
-        lightModal.classList.remove('visible');
-    });
+/* variable imgModal die  in function addDialogSection() dynamiasch erstellt wurde
+ darf sie nicht global sein,  sonst wird diese mit null wert Initialisiert */
+function addImgInModalClass() {
+    let imgModal = document.getElementById('imgInModal');
+    imgModal.classList.add('imgInModal');
+}
 
-    /* schließen, wenn auf den Hintergrund des Modals geklickt wird und  Entferne die 'visible' Klasse
-            }   */
-    lightModal.addEventListener('click', function(e) {
-        if (e.target === lightModal) {
-            lightModal.classList.remove('visible');
-        }
-    });
 
+
+function addDialogFooter() {
+    dialogsRef.innerHTML += `<footer id="dialogFooter">
+    <div id="arrowContainer" class="arrow_Container"><button id="arrowButtonLeft" class="arrow_button" type="button">&larr;</button>
+    <button id="arrowButtonRight" class="arrow_button" type="button">&rarr;</button></div></footer>`;
+}
+
+
+function openLargeHolidayImg(getLargeImg) {
+    let imgModal = document.getElementById('imgInModal');
+    imgModal.src = getLargeImg;
+    console.log(imgModal);
+    dialogsRef.showModal();
+    dialogsRef.classList.add('opend');
+}
+
+
+function closeLargeHolidayImg() {
+    dialogsRef.close();
 }

@@ -1,182 +1,238 @@
-:root {
-    --primary-color: rgb(10, 65, 77);
-    --secondary-color: rgb(44, 44, 43, 0.25);
-    --link_and_img-color: rgb(241, 110, 87);
-    --color-h1: rgba(255, 255, 255);
-    ;
-}
+  :root
+  {
+      --primary-color: rgb(10, 65, 77);
+      --secondary-color: rgb(44, 44, 43, 0.25);
+      --link_and_img-color: rgb(241, 110, 87);
+      --color-h1: rgba(255, 255, 255);
+      --backdrop-color: rgba(0, 0, 0, 0.3);
+      --button-arrow-and-close: rgba(255, 255, 255);
+  }
 
-@font-face {
-    font-family: 'Linotte';
-    src: url(./fonts/Linotte\ Bold.otf);
-    src: url(./fonts/Linotte\ Heavy.otf);
-    src: url(./fonts/Linotte\ Light.otf);
-    src: url(./fonts/Linotte\ Regular.otf);
-    src: url(./fonts/Linotte\ Semi\ Bold.otf);
-}
+  @font-face
+  {
+      font-family: 'Linotte';
+      src: url(./fonts/Linotte\ Bold.otf);
+      src: url(./fonts/Linotte\ Heavy.otf);
+      src: url(./fonts/Linotte\ Light.otf);
+      src: url(./fonts/Linotte\ Regular.otf);
+      src: url(./fonts/Linotte\ Semi\ Bold.otf);
+  }
 
-html {
-    scroll-behavior: smooth;
-    margin: 0;
-}
+  html
+  {
+      scroll-behavior: smooth;
+      margin: 0;
+  }
 
-body {
-    margin: 0;
-    background-size: cover;
-    background-position: center;
-    background: var(--primary-color);
-}
+  body
+  {
+      margin: 0;
+      background-size: cover;
+      background-position: center;
+      background: var(--primary-color);
+  }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 24px;
-    background: var(--secondary-color);
-    height: 96px;
-    box-shadow: 0px 0px 20px 1px var(--link_and_img-color);
-}
+  .header
+  {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 24px;
+      background: var(--secondary-color);
+      height: 96px;
+      box-shadow: 0px 0px 20px 1px var(--link_and_img-color);
+  }
 
-.img_fotogram-logo_haeder {
-    display: flex;
-    width: 400px;
-}
+  .img_fotogram-logo_haeder
+  {
+      display: flex;
+      width: 400px;
+  }
 
-nav {
-    display: flex;
-    padding-right: 24px;
-}
+  nav
+  {
+      display: flex;
+      padding-right: 24px;
+  }
 
-ul {
-    display: flex;
-    width: 350px;
-    height: 96px;
-    justify-content: space-around;
-    align-items: center;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    color: white;
-    font-family: 'Linotte';
-    font-size: 22px;
-    list-style-type: none;
-    padding: 0;
-}
 
-a {
-    text-decoration: none;
-    color: white;
-}
 
-a:hover {
-    color: var(--link_and_img-color);
-    box-shadow: 3px 3px 5px 0px var(--link_and_img-color);
-    border-radius: 5px;
-}
+  ul
+  {
+      display: flex;
+      width: 350px;
+      height: 96px;
+      justify-content: space-around;
+      align-items: center;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+      color: white;
+      font-family: 'Linotte';
+      font-size: 22px;
+      list-style-type: none;
+      padding: 0;
+  }
 
-h1 {
-    display: flex;
-    justify-content: center;
-    margin-top: 80px;
-    color: var(--color-h1);
-    font-family: 'Linotte';
-    font-size: 52px;
-    margin-bottom: 0;
-}
+  p
+  {
+      font-size: 50px;
+      color: white;
+  }
 
-main {
-    display: flex;
-    height: 80vh;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
+  a
+  {
+      text-decoration: none;
+      color: white;
+  }
 
-.all_images {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    padding-left: 24px;
-    padding-right: 24px;
-    object-fit: cover;
-}
+  a:hover
+  {
+      color: var(--link_and_img-color);
+      box-shadow: 3px 3px 5px 0px var(--link_and_img-color);
+      border-radius: 5px;
+  }
 
-.main_images {
-    width: 150px;
-    height: 150px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 5px 5px 8px 0px var(--link_and_img-color);
-}
+  h1
+  {
+      display: flex;
+      justify-content: center;
+      margin-top: 80px;
+      color: var(--color-h1);
+      font-family: 'Linotte';
+      font-size: 52px;
+      margin-bottom: 0;
+  }
 
-.main_images:hover {
-    transform: scale(1.3);
-}
+  main
+  {
+      display: flex;
+      height: 80vh;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+  }
 
-.hidden {
-    position: fixed;
-    top: 100px;
-    left: auto;
-    width: 1024px;
-    height: 768px;
-    background-color: rgba(0, 0, 0, 0.85);
-    visibility: hidden;
-    cursor: pointer;
-}
+  .all_holidayImages
+  {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      padding-left: 24px;
+      padding-right: 24px;
+      object-fit: cover;
+  }
 
-.visible {
-    visibility: visible;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 16px;
-}
+  .thumbnails
+  {
+      width: 150px;
+      height: 150px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 5px 5px 8px 0px var(--link_and_img-color);
+  }
 
-.bigBox {
-    width: 1024px;
-    height: 768px;
-    object-fit: cover;
-    box-shadow: 5px 5px 8px 0px var(--link_and_img-color);
-    cursor: pointer;
-    border-radius: 16px;
-}
+  .thumbnails:hover
+  {
+      transform: scale(1.3);
+  }
 
-.class_modal {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out;
-}
+  dialog
+  {
+      border-radius: 16px;
+      border: 0px;
+      box-shadow: 5px 5px 8px 0px var(--link_and_img-color);
+      background-color: var(--primary-color);
+      padding: 0;
+  }
 
-.arrow_button {
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    border-radius: 180px;
-    box-shadow: 0px 0px 3px 3px var(--link_and_img-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: 'Linotte';
-    font-size: 30px;
-}
+  dialog.opend::backdrop
+  {
 
-.ul_footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    background: var(--secondary-color);
-    box-shadow: 0px 0px 20px 1px var(--link_and_img-color);
-    height: 184px;
-}
+      background-color: var(--backdrop-color);
+      padding: 0;
+
+  }
+
+  .dialog_Header
+  {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 20px;
+      height: 70px;
+
+  }
+
+  .close_button
+  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 180px;
+      box-shadow: 0px 0px 3px 3px var(--link_and_img-color);
+      background-color: var(--primary-color);
+
+      color: var(--button-arrow-and-close);
+      font-family: 'Linotte';
+      font-size: 30px;
+      padding-block: 0;
+      padding-inline: 0;
+
+  }
+
+
+
+  .imgInModal
+  {
+      width: 1024px;
+      height: 600px;
+      margin: 50px 0px px 0;
+      border-radius: 16px;
+      object-fit: cover;
+      overflow: hidden;
+  }
+
+  .arrow_Container
+  {
+      height: 100px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+  }
+
+
+  .arrow_button
+  {
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      border-radius: 180px;
+      box-shadow: 0px 0px 3px 3px var(--link_and_img-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--button-arrow-and-close);
+      font-family: 'Linotte';
+      font-size: 30px;
+
+  }
+
+  .ul_footer
+  {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      background: var(--secondary-color);
+      box-shadow: 0px 0px 20px 1px var(--link_and_img-color);
+      height: 184px;
+  }
