@@ -4,11 +4,15 @@
 
 function init() {
   addHolidayImgList();
+  addOnlickHolidayImges();
   addDialogHeaderAndCloseButton();
   addDialogSection();
-  addImgInModalClass();
-  addDialogFooteranArrows();
-  buttonNextImage();
+  addClassImgInModal();
+  addDialogFooterandArrows();
+  addOnclickRight();
+  addOnclickLeft();
+  clickButtonForward();
+  clickButtonPrevious();
 }
 
 let holidayImgList = [
@@ -57,22 +61,33 @@ let altTextArray = [
   " Grosser Swimmingpool nachts blau beleucht",
 ];
 
-/* holidayImages, dialogsRef sind statisch  */
+/* holidayImages & dialogsRef sind statisch  */
 
 let holidayImages = document.getElementById("holidayImages");
 let dialogsRef = document.getElementById("dialogs");
-let currentIndex = 0;
+let currentImg;
+let currentImgIndex;
 
 function addHolidayImgList() {
   for (let index = 0; index < holidayImgList.length; index++) {
-    holidayImages.innerHTML += returnImg(index);
+    holidayImages.innerHTML += getImges(index);
   }
 }
 
-function returnImg(getImgList) {
-  return `<img class="thumbnails" src="${holidayImgList[getImgList]}"
-          alt="${altTextArray[getImgList]}" 
-            onclick="openLargeHolidayImg('${holidayImgList[getImgList]}')"></img>`;
+function getImges(ImgListIndex) {
+  return `<img  class="thumbnails" src="${holidayImgList[ImgListIndex]}" alt="${altTextArray[ImgListIndex]}"></img>`;
+}
+
+function addOnlickHolidayImges() {
+  let ImgList = document.querySelectorAll(".thumbnails");
+
+  for (let index = 0; index < ImgList.length; index++) {
+    /* mit [index]  wird ein Attribut jedem einzelnen Element zugewiesen */
+    ImgList[index].setAttribute(
+      "onclick",
+      "openLargeHolidayImg(this, " + index + ")"
+    );
+  }
 }
 
 function addDialogHeaderAndCloseButton() {
@@ -81,28 +96,42 @@ function addDialogHeaderAndCloseButton() {
 }
 
 function addDialogSection() {
-  dialogsRef.innerHTML += `<section id="largeHolidayImg"><img id="imgInModal" alt="bigPicture"> </section>`;
+  dialogsRef.innerHTML += `<section><img id="imgModal" src="" alt=""> </section>`;
 }
 
 /* variable imgModal die  in function addDialogSection() dynamiasch erstellt wurde
- darf sie nicht global sein,  sonst wird diese mit null wert Initialisiert */
-function addImgInModalClass() {
-  let imgModal = document.getElementById("imgInModal");
-  imgModal.classList.add("imgInModal");
+ darf nicht global sein,  sonst wird diese mit null wert Initialisiert  */
+function addClassImgInModal() {
+  let imgModal = document.getElementById("imgModal");
+  imgModal.classList.add("lagre_img");
 }
 
-function addDialogFooteranArrows() {
+function addDialogFooterandArrows() {
   dialogsRef.innerHTML += `<footer id="dialogFooter">
-    <div id="arrowContainer" class="arrow_Container"><button  class="arrow_button" type="button">&larr;</button>
-    <button class="arrow_button" onclick="buttonNextImage()"  type="button">&rarr;</button></div></footer>`;
+    <div id="arrowContainer" class="arrow_Container"><button id="arrowLeft"  class="arrow_button" type="button">&larr;</button>
+    <button id="arrowRight" class="arrow_button"  type="button">&rarr;</button></div></footer>`;
 }
 
-function openLargeHolidayImg(getLargeImg) {
-  console.log(getLargeImg);
+function addOnclickRight() {
+  let ImgList = document.getElementById("arrowRight");
+  ImgList.setAttribute("onclick", "clickButtonForward()");
+}
 
-  let imgModal = document.getElementById("imgInModal");
-  imgModal.src = getLargeImg;
-  console.log(imgModal);
+function addOnclickLeft() {
+  let ImgList = document.getElementById("arrowLeft");
+  ImgList.setAttribute("onclick", "clickButtonPrevious()");
+}
+
+function openLargeHolidayImg(img, imgIndex) {
+  let imgModal = document.getElementById("imgModal");
+  /* kein innerHTML weil hier direkt das img manipuliert wird  */
+  imgModal.src = img.src;
+  imgModal.alt = img.alt;
+
+  currentImg = img;
+  currentImgIndex = imgIndex;
+  console.log(currentImg);
+
   dialogsRef.showModal();
   dialogsRef.classList.add("opend");
 }
@@ -111,24 +140,23 @@ function closeLargeHolidayImg() {
   dialogsRef.close();
 }
 
-/* unction getNextImg() {
-  for (let index = 0; index < holidayImgList.length; index++) {
-           =    [index];
-    
+function clickButtonForward() {
+  /* -1 wegen der Inkrementierung */
+  if (currentImgIndex < holidayImgList.length - 1) {
+    currentImgIndex++;
+    let imgModal = document.getElementById("imgModal");
+    /* weise imgModal.src das nächste Bild zu  mit holidayImgList[currentImgIndex]  */
+    imgModal.src = holidayImgList[currentImgIndex];
+    dialogsRef.showModal();
   }
-
- function returnNextImg () {
-    
-     return 
-
- }
-
-
-
-
 }
 
- */
-function buttonNextImage() {
-  closeLargeHolidayImg();
+function clickButtonPrevious() {
+  /*  wegen der Dekrementierung, kann also nicht >= sein  */
+  if (currentImgIndex > 0) {
+    currentImgIndex--;
+    let imgModal = document.getElementById("imgModal");
+    imgModal.src = holidayImgList[currentImgIndex];
+    dialogsRef.showModal();
+  }
 }
