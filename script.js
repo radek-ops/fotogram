@@ -61,7 +61,7 @@ let altText = [
     " Grosser Swimmingpool nachts blau beleucht",
 ];
 
-let titleText = ["-1. Jamaika-2024-", "-2. Zypern 2024-", "-3. Jamaika-2024-", "-4. Lanzerote 2023-", "-5. Jamaika-2024-", "-6. Jamaika-2024-", "-7. Flug nach Dom.Rep. 2022-", "-9. Jamaika-2020-",
+let titleText = ["-1. Jamaika-2024-", "-2. Zypern 2024-", "-3. Jamaika-2024-", "-4. Lanzerote 2023-", "-5. Jamaika-2024-", "-6. Jamaika-2024-", "-7. Dom.Rep. 2022-", "-8. Zypern 2024-", "-9. Jamaika-2020-",
     "-10. Jamaika-2024-", "-11. Zypern 2024-", "-12. Zypern 2024-", "-13. Jamajka 2020- ", "-14. Curacao 2021-", "-15. Jamaika-2020-", "-16. Curacao 2021-", "-17. Curacao 2021-", "-18. Jamaika-2020-",
     "-19. Jamaika-2020-", "-20. Zypern 2020-"
 
@@ -179,4 +179,5 @@ function dialogHeadLine() {
     let headline = document.getElementById('imgTitle');
     headline.innerHTML = titleText[currentImgIndex];
 }
-s
+
+
