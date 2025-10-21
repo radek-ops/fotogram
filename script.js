@@ -149,6 +149,7 @@ function openLargeHolidayImg(img, imgIndex) {
 
 function closeLargeHolidayImg() {
     dialogsRef.close();
+
 }
 
 function clickButtonForward() {
