@@ -11,8 +11,7 @@ function init() {
     addDialogFooterandArrows();
     addOnclickRight();
     addOnclickLeft();
-    clickButtonForward();
-    clickButtonPrevious();
+
 }
 
 let holidayImgList = [
@@ -98,7 +97,7 @@ function addOnlickHolidayImges() {
 
 function addDialogHeaderAndCloseButton() {
     dialogsRef.innerHTML += `<header id="headline" class="dialog_Header" ><h2 id="imgTitle" ></h2>
-    <button class="close_button" type="button" onclick="closeLargeHolidayImg()">&times;</button></header`;
+    <button class="close_button" type="button" onclick="closeLargeHolidayImg()">&times;</button></header>`;
 }
 
 
@@ -139,7 +138,6 @@ function openLargeHolidayImg(img, imgIndex) {
     currentImg = img;
     currentImgIndex = imgIndex;
     console.log(currentImg);
-
     dialogHeadLine(img, imgIndex);
     dialogsRef.showModal();
     dialogsRef.classList.add("opend");
