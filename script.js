@@ -107,7 +107,6 @@ function addDialogHeaderAndCloseButton() {
 }
 
 
-
 function addDialogSection() {
     dialogsRef.innerHTML += `<section><img id="imgModal" src="" alt="" title=""> </section>`;
 }
