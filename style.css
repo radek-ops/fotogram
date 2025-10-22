@@ -100,24 +100,34 @@
       border-radius: 5px;
   }
 
+  .link:focus
+  {
+      color: var(--link_and_img-color);
+      box-shadow: 3px 3px 5px 0px var(--link_and_img-color);
+      border-radius: 5px;
+
+  }
+
 
   h1
   {
       display: flex;
       justify-content: center;
-
+      align-items: flex-start;
       color: var(--color-h1);
       font-family: 'Linotte';
       font-size: 52px;
-      margin-bottom: 200px;
+      margin-bottom: 50px;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
   }
 
 
   main
   {
       display: flex;
-      height: 100vh;
-      justify-content: center;
+      height: 80vh;
+      justify-content: space-evenly;
       flex-direction: column;
       align-items: center;
   }
@@ -150,7 +160,17 @@
   .thumbnails:hover
   {
       transform: scale(1.3);
+
   }
+
+  .thumbnails_WCAG
+  {
+
+      border-radius: 16px;
+  }
+
+
+
 
 
   dialog
@@ -226,7 +246,6 @@
       flex-grow: 1;
       object-fit: cover;
       aspect-ratio: 2;
-
   }
 
 
@@ -283,7 +302,7 @@
   }
 
 
-  @media(max-width: 1280px)
+  @media(max-width: 1279px)
   {
       .lagre_img
       {
@@ -299,6 +318,11 @@
           margin-block-end: 0em
       }
 
+      h1
+      {
+          font-size: 39px;
+
+      }
   }
 
 
@@ -314,8 +338,6 @@
 
       .img_fotogram_impressum
       {
-          padding-top: 20px;
-          display: flex;
           width: 300px;
       }
 
@@ -323,14 +345,9 @@
       h2
       {
           padding: 20px;
-          margin-block-start: 0em;
-          margin-block-end: 0em
       }
 
-
   }
-
-
 
 
   @media(max-width: 767px)
@@ -338,14 +355,12 @@
 
       .img_fotogram_logo
       {
-          display: flex;
           width: 200px;
       }
 
 
       .img_fotogram_impressum
       {
-          display: flex;
           width: 200px;
       }
 
@@ -374,8 +389,8 @@
 
       .thumbnails
       {
-          width: 120px;
-          height: 120px;
+          width: 130px;
+          height: 130px;
       }
 
 
@@ -421,7 +436,6 @@
       .arrow_Container
       {
           padding: 30px;
-
       }
 
 
@@ -434,11 +448,20 @@
   }
 
 
-  @media(max-width: 550px)
+  @media(max-width: 767px)
+  {
+      .thumbnails
+      {
+          width: 110px;
+          height: 110px;
+      }
+  }
+
+
+  @media(max-width: 558px)
   {
       .img_fotogram_logo
       {
-          display: flex;
           width: 200px;
       }
 
@@ -465,16 +488,15 @@
       h2
       {
           padding: 19px;
-          margin-block-start: 0em;
-          margin-block-end: 0em;
           font-size: 20px;
       }
 
-
       .all_holidayImages
       {
-          gap: 12px;
+          padding-left: 18px;
+          padding-right: 18px;
       }
+
 
 
       .thumbnails
@@ -507,7 +529,6 @@
           padding-left: 11px;
           width: 40px;
           height: 40px;
-          border-radius: 180px;
           font-size: 24px;
       }
 
@@ -535,17 +556,10 @@
       {
           width: 30px;
           height: 30px;
-          background-color: var(--primary-color);
-          border-radius: 180px;
-          box-shadow: 0px 0px 3px 3px var(--link_and_img-color);
           display: flex;
           justify-content: center;
           align-items: center;
-          color: var(--button-arrow-and-close);
-          font-family: 'Linotte';
           font-size: 20px;
-          cursor: pointer;
-          position: relative;
       }
 
   }
@@ -556,7 +570,6 @@
 
       .img_fotogram_logo
       {
-          display: flex;
           width: 150px;
       }
 
@@ -573,7 +586,6 @@
           padding-left: 9px;
           width: 30px;
           height: 30px;
-          border-radius: 180px;
           font-size: 16px;
       }
 
@@ -592,8 +604,8 @@
 
       .thumbnails
       {
-          width: 60px;
-          height: 60px;
+          width: 83px;
+          height: 83px;
       }
 
 
@@ -605,7 +617,7 @@
 
       h1
       {
-          margin-top: 24px;
+
           font-size: 22px;
       }
 
@@ -629,7 +641,7 @@
       .lagre_img
       {
           width: 80vw;
-          height: 70vh;
+          height: 67vh;
       }
 
 

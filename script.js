@@ -2,18 +2,6 @@
  */
 "use strict";
 
-function init() {
-    addHolidayImgList();
-    addOnlickHolidayImges();
-    addDialogHeaderAndCloseButton();
-    addDialogSection();
-    addClassImgInModal();
-    addDialogFooterandArrows();
-    addOnclickRight();
-    addOnclickLeft();
-
-}
-
 let holidayImgList = [
     "./img/img_1.jpg",
     "./img/img_2.JPG",
@@ -73,22 +61,40 @@ let dialogsRef = document.getElementById("dialogs");
 let currentImg;
 let currentImgIndex;
 
+
+function init() {
+    addHolidayImgList();
+    addOnlickHolidayImages();
+    addDialogHeaderAndCloseButton();
+    addDialogSection();
+    addClassImgInModal();
+    addDialogFooterandArrows();
+
+
+}
+
+
 function addHolidayImgList() {
     for (let index = 0; index < holidayImgList.length; index++) {
-        holidayImages.innerHTML += getImges(index);
+        holidayImages.innerHTML += getImages(index);
     }
 }
 
-function getImges(ImgListIndex) {
-    return `<img  class="thumbnails" src="${holidayImgList[ImgListIndex]}" alt="${altText[ImgListIndex]}"  title="${titleText[ImgListIndex]}" ></img>`;
+function getImages(imgListIndex) {
+    return `<a href="#" class="thumbnails_WCAG" tabindex="0">
+    <img  class="thumbnails" src="${holidayImgList[imgListIndex]}" alt="${altText[imgListIndex]}"  title="${titleText[imgListIndex]}" >
+    </img>
+    </a>`;
 }
 
-function addOnlickHolidayImges() {
-    let ImgList = document.querySelectorAll(".thumbnails");
 
-    for (let index = 0; index < ImgList.length; index++) {
+function addOnlickHolidayImages() {
+    let imgList = document.querySelectorAll(".thumbnails_WCAG");
+
+    for (let index = 0; index < imgList.length; index++) {
         /* mit [index]  wird ein Attribut jedem einzelnen Element zugewiesen */
-        ImgList[index].setAttribute(
+        /* mit oncklick das greife ich auf  <a href=""><img></a> und nicht das <img> das da drin ist   */
+        imgList[index].setAttribute(
             "onclick",
             "openLargeHolidayImg(this, " + index + ")"
         );
@@ -97,7 +103,7 @@ function addOnlickHolidayImges() {
 
 function addDialogHeaderAndCloseButton() {
     dialogsRef.innerHTML += `<header id="headline" class="dialog_Header" ><h2 id="imgTitle" ></h2>
-    <button class="close_button" type="button" onclick="closeLargeHolidayImg()">&times;</button></header>`;
+    <button class="close_button" type="button" onclick="closeLargeHolidayImg()" tabindex="0">&times;</button></header>`;
 }
 
 
@@ -106,8 +112,9 @@ function addDialogSection() {
     dialogsRef.innerHTML += `<section><img id="imgModal" src="" alt="" title=""> </section>`;
 }
 
-/* variable imgModal die  in function addDialogSection() dynamiasch erstellt wurde
- darf nicht global sein,  sonst wird diese mit null wert Initialisiert  */
+
+/* variable imgModal die in function addDialogSection() dynamiasch erstellt wurde
+ darf nicht global sein,  sonst wird diese mit null wert initialisiert  */
 function addClassImgInModal() {
     let imgModal = document.getElementById("imgModal");
     imgModal.classList.add("lagre_img");
@@ -115,31 +122,28 @@ function addClassImgInModal() {
 
 function addDialogFooterandArrows() {
     dialogsRef.innerHTML += `<footer id="dialogFooter">
-    <div id="arrowContainer" class="arrow_Container"><button id="arrowLeft"  class="arrow_button" type="button">&larr;</button>
-    <button id="arrowRight" class="arrow_button"  type="button">&rarr;</button></div></footer>`;
+    <div id="arrowContainer" class="arrow_Container"><button id="arrowLeft" class="arrow_button" onclick="clickButtonPrevious()" tabindex="0" type="button">&larr;</button>
+    <button id="arrowRight" class="arrow_button" onclick="clickButtonForward()" tabindex="0"  type="button">&rarr;</button></div></footer>`;
 }
 
-function addOnclickRight() {
-    let ImgList = document.getElementById("arrowRight");
-    ImgList.setAttribute("onclick", "clickButtonForward()");
-}
 
-function addOnclickLeft() {
-    let ImgList = document.getElementById("arrowLeft");
-    ImgList.setAttribute("onclick", "clickButtonPrevious()");
-}
+function openLargeHolidayImg(anchorCentent, imgIndex) {
+    console.log(anchorCentent);
+    /* suche in anchor mit querySelector('img') nach einem Bild   */
+    let img = anchorCentent.querySelector('img');
+    console.log(img);
 
-function openLargeHolidayImg(img, imgIndex) {
+
     let imgModal = document.getElementById("imgModal");
-    /* kein innerHTML weil hier direkt das img manipuliert wird  */
+    /* kein innerHTML weil hier direkt das img attribut manipuliert wird  */
     imgModal.src = img.src;
     imgModal.alt = img.alt;
     imgModal.title = img.title;
-    currentImg = img;
-    currentImgIndex = imgIndex;
-    console.log(currentImg);
-    dialogHeadLine(img, imgIndex);
     dialogsRef.showModal();
+    currentImg = img;
+    console.log(currentImg);
+    currentImgIndex = imgIndex;
+    dialogHeadLine();
     dialogsRef.classList.add("opend");
 
 
