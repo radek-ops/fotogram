@@ -1,5 +1,3 @@
-/* wichig  damit nicht ungewollt automatisch eine globale variable erstellt wird
- */
 "use strict";
 
 let holidayImgList = [
@@ -54,17 +52,52 @@ let titleText = ["-1. Jamaika-2024-", "-2. Zypern 2024-", "-3. Jamaika-2024-", "
 
 ];
 
-/* holidayImages & dialogsRef sind statisch  */
 
 let holidayImages = document.getElementById("holidayImages");
 let dialogsRef = document.getElementById("dialogs");
+dialogsRef.innerHTML = fullDialogHtml();
 let currentImg;
 let currentImgIndex;
 
 
 function init() {
+    fullDialogHtml();
     addHolidayImgList();
-    Dialog();
+}
+
+
+function fullDialogHtml() {
+    return dialogHeaderHtml() + dialogHtmlSection() + footerHtmlContent();
+}
+
+function getImages(imgListIndex) {
+    return `<a href="#" class="thumbnails_WCAG" onclick="openlargeHolidayImg(this, ${[imgListIndex]})" tabindex="0">
+    <img  class="thumbnails"  src="${holidayImgList[imgListIndex]}" alt="${altText[imgListIndex]}"  title="${titleText[imgListIndex]}" >
+    </img>
+    </a>`;
+}
+
+
+function dialogHeaderHtml() {
+    return `<header id="headline" class="dialog_Header" >
+    <h2 id="imgTitle"></h2>
+    <button class="close_button" type="button" onclick="closelargeHolidayImg()" tabindex="0">&times;</button>
+    </header>`;
+}
+
+
+function dialogHtmlSection() {
+    return `<section><img id="imgModal" class="lagre_img" src="" alt="" title=""></section>`;
+}
+
+
+function footerHtmlContent() {
+    return `<footer id="dialogFooter">
+    <div id="arrowContainer" class="arrow_Container">
+        <button id="arrowLeft" class="arrow_button" onclick="clickButtonPrevious()" tabindex="0" type="button">&larr;</button>
+        <button id="arrowRight" class="arrow_button" onclick="clickButtonForward()" tabindex="0" type="button">&rarr;</button>
+    </div>
+</footer>`;
 }
 
 
@@ -75,73 +108,33 @@ function addHolidayImgList() {
 }
 
 
-function getImages(imgListIndex) {
-    return `<a href="#" class="thumbnails_WCAG" onclick="openDialog(this, ${[imgListIndex]})" tabindex="0">
-    <img  class="thumbnails"  src="${holidayImgList[imgListIndex]}" alt="${altText[imgListIndex]}"  title="${titleText[imgListIndex]}" >
-    </img>
-    </a>`;
-}
-
-
-function Dialog() {
-    dialogsRef.innerHTML += `<header id="headline" class="dialog_Header" >
-    <h2 id="imgTitle"></h2>
-    <button class="close_button" type="button" onclick="closeDialog()" tabindex="0">&times;</button>
-    </header>
-
-    <section><img id="imgModal" class="lagre_img" src="" alt="" title=""></section>
-    <footer id="dialogFooter">
-
-    <div id="arrowContainer" class="arrow_Container">
-    <button id="arrowLeft" class="arrow_button" onclick="clickButtonPrevious()" tabindex="0" type="button">&larr;</button>
-    <button id="arrowRight" class="arrow_button" onclick="clickButtonForward()" tabindex="0"  type="button">&rarr;</button>
-    </div>
-    </footer>`;
-}
-
-
-function openDialog(anchorCentent, imgIndex) {
-
-    /* suche in anchor mit querySelector('img') nach einem Bild   */
+function openlargeHolidayImg(anchorCentent, imgIndex) {
     let img = anchorCentent.querySelector('img');
     let imgModal = document.getElementById("imgModal");
-    /* kein innerHTML weil hier direkt das img attribut manipuliert wird  */
     imgModal.src = img.src;
-    /* alt="" für großes  */
     imgModal.alt = img.alt;
     imgModal.title = img.title;
     dialogsRef.showModal();
     currentImg = img;
     currentImgIndex = imgIndex;
     dialogHeadLine();
-
-}
-
-
-function closeDialog() {
-    dialogsRef.close();
 }
 
 
 function clickButtonForward() {
     currentImgIndex++;
-    /*-1 wegen der Inkrementierung */
     if (currentImgIndex >= 20) {
         currentImgIndex = 0;
     }
-
     let imgModal = document.getElementById("imgModal");
-    /* weise imgModal.src das nächste Bild zu  mit holidayImgList[currentImgIndex] */
     imgModal.src = holidayImgList[currentImgIndex];
     dialogsRef.showModal();
     dialogHeadLine();
-
 }
 
 
 function clickButtonPrevious() {
     currentImgIndex--;
-    /*  wegen der Dekrementierung, kann also nicht >= sein  */
     if (currentImgIndex <= 0) {
         currentImgIndex = 19;
     }
@@ -150,7 +143,6 @@ function clickButtonPrevious() {
     imgModal.src = holidayImgList[currentImgIndex];
     dialogsRef.showModal();
     dialogHeadLine();
-
 }
 
 
@@ -160,3 +152,10 @@ function dialogHeadLine() {
 }
 
 
+function closelargeHolidayImg() {
+    dialogsRef.close();
+}
+
+function toggleDNon() {
+    document.getElementById
+}
