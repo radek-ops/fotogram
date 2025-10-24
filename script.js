@@ -67,33 +67,26 @@ function init() {
 
 
 function fullDialogHtml() {
-    return dialogHeaderHtml() + dialogHtmlSection() + footerHtmlContent();
-}
-
-function getImages(imgListIndex) {
-    return `<a href="#" class="thumbnails_WCAG" onclick="openlargeHolidayImg(this, ${[imgListIndex]})" tabindex="0">
-    <img  class="thumbnails"  src="${holidayImgList[imgListIndex]}" alt="${altText[imgListIndex]}"  title="${titleText[imgListIndex]}" >
-    </img>
-    </a>`;
+    return dialogHtmlHeaderContend() + dialogHtmlSectionContent() + dialogfooterHtmlContent();
 }
 
 
-function dialogHeaderHtml() {
-    return `<header id="headline" class="dialog_Header" >
+function dialogHtmlHeaderContend() {
+    return `<header id="headline" class="dialog_Header" onclick="closeDialogOutsite(event)" >
     <h2 id="imgTitle"></h2>
-    <button class="close_button" type="button" onclick="closelargeHolidayImg()" tabindex="0">&times;</button>
+    <button class="close_button" type="button" onclick="buttonCloseDialog()" tabindex="0">&times;</button>
     </header>`;
 }
 
 
-function dialogHtmlSection() {
-    return `<section><img id="imgModal" class="lagre_img" src="" alt="" title=""></section>`;
+function dialogHtmlSectionContent() {
+    return `<section  onclick="closeDialogOutsite(event)"><img id="imgModal" class="lagre_img" src="" alt="" title=""></section>`;
 }
 
 
-function footerHtmlContent() {
+function dialogfooterHtmlContent() {
     return `<footer id="dialogFooter">
-    <div id="arrowContainer" class="arrow_Container">
+    <div id="arrowContainer" class="arrow_Container" onclick="closeDialogOutsite(event)">
         <button id="arrowLeft" class="arrow_button" onclick="clickButtonPrevious()" tabindex="0" type="button">&larr;</button>
         <button id="arrowRight" class="arrow_button" onclick="clickButtonForward()" tabindex="0" type="button">&rarr;</button>
     </div>
@@ -105,6 +98,13 @@ function addHolidayImgList() {
     for (let index = 0; index < holidayImgList.length; index++) {
         holidayImages.innerHTML += getImages(index);
     }
+}
+
+function getImages(imgListIndex) {
+    return `<a href="#" class="thumbnails_WCAG" onclick="openlargeHolidayImg(this, ${[imgListIndex]})" tabindex="0">
+    <img  class="thumbnails"  src="${holidayImgList[imgListIndex]}" alt="${altText[imgListIndex]}"  title="${titleText[imgListIndex]}" >
+    </img>
+    </a>`;
 }
 
 
@@ -152,10 +152,13 @@ function dialogHeadLine() {
 }
 
 
-function closelargeHolidayImg() {
+function buttonCloseDialog() {
     dialogsRef.close();
 }
 
-function toggleDNon() {
-    document.getElementById
+function closeDialogOutsite(event) {
+    event.stopPropagation();
 }
+
+
+
