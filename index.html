@@ -8,11 +8,13 @@
     <meta name="author" content="Radek Gnych " />
     <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
+    <script defer src="./template.js"></script>
+    <script defer src="./script.js"></script>
     <title>Fotogram</title>
 </head>
 
 <body onload="init()">
+
     <header class="header">
         <nav>
             <img class="img_fotogram_logo" src="./img/Fotogram_Logo.svg" alt="Titel-Fotogram-Bild-Logo" />
@@ -30,11 +32,10 @@
     <main>
         <h1>Mein persönliches Fotoalbum</h1>
         <div id="holidayImages" class="all_holidayImages"></div>
-
         <dialog id="dialogs" onclick="buttonCloseDialog()"></dialog>
     </main>
 
-    <footer>
+    <footer class="footer">
         <ul class="ul_footer">
             <li>Created by Radek</li>
             <a class="link" href="mailto:radekgnych@gmail.com" id="mail">
