@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Radek Gnych " />
     <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="./template.js"></script>
-    <script defer src="./script.js"></script>
+   
+    <script defer src="./script/template.js"></script>
+    <script defer src="./script/script.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
     <title>Fotogram</title>
 </head>
 
@@ -30,9 +31,11 @@
     </header>
 
     <main>
-        <h1>Mein persönliches Fotoalbum</h1>
-        <div id="holidayImages" class="all_holidayImages"></div>
-        <dialog id="dialogs" onclick="buttonCloseDialog()"></dialog>
+        <div class="main_container">
+            <h1>Mein persönliches Fotoalbum</h1>
+            <div id="holidayImages" class="all_holidayImages"></div>
+            <dialog id="dialogs" onclick="buttonCloseDialog()"></dialog>
+        </div>
     </main>
 
     <footer class="footer">
