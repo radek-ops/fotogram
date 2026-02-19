@@ -1,14 +1,5 @@
  
- @font-face {
-      font-family: 'Linotte';
-      src: url(../fonts/Linotte-Bold.woff2 ) format('.woff2');
-      src: url(../fonts/Linotte-Heavy.woff2) format('.woff2');
-      src: url(../fonts/Linotte-Light.woff2) format('.woff2');
-      src: url(../fonts/Linotte-Regular.woff2) format('.woff2');
-      src: url(../fonts/Linotte-SemiBold.woff2) format('.woff2');
-  }
-
-.main-impressum {
+ .main-impressum {
      display: flex;
      justify-content: center;
      align-items: center;
