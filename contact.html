@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Radek Gnych " />
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg" />
+    <link rel="stylesheet" href="./style/impressum.css" />
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/contact.css">
+    <title>Fotogram</title>
+</head>
+
+<body class="body-impressum">
+
+    <header class="header">
+        <nav>
+            <a href="index.html" class="a_impressum"><img class="img_fotogram_logo" src="img/Fotogram_Logo.svg"
+                    alt="Fotogram_Logo" /></a>
+            <ul>
+                <a href="impressum.html" id="" class="link">
+                    <li>Impressum</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-contact">
+        <main class="main_content">
+            <div class="main_content_container">
+                <form class="form_contact" onsubmit="sendMail(event)">
+                    <label>
+                        Dein Name:
+                        <input class="contact_input" type="text" name="name" placeholder="Jon Doe" required>
+                    </label>
+                    <label>
+                        Deine Email:
+                        <input class="contact_input" type="email" name="email" placeholder="Jon@Doe.de">
+                    </label>
+                    <label>
+                        Deine Nachricht:
+                        <textarea name="message" required
+                            placeholder="Tippe hier deine Nachricht: &#10;&#10;&#10;(Es wird keine Nachricht gesendet, es ist nur eine Muster-Website.)"></textarea>
+                    </label>
+                    <h4 id="transmit"></h4>
+                    <button type="submit" class="main_button">Send</button>
+            </div>
+            </form>
+        </main>
+
+    </main>
+
+    <footer class="footer">
+        <ul class="ul_footer">
+            <li>Created by Radek</li>
+            <li>Icons made from <a class="link" href="https://www.onlinewebfonts.com/icon">svg icons </a>is licensed by
+                CC BY 4.0</li>
+        </ul>
+    </footer>
+</body>
+
+</html>

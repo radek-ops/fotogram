@@ -1,26 +1,25 @@
-function dialogHtmlHeaderContend() {
-    return `<header id="headline" class="dialog_Header" onclick="closeDialogOutsite(event)" >
+function dialogHtmlHeaderContendTpl() {
+    return /*html*/ `<header id="headline" class="dialog_Header" onclick="closeDialogOutsite(event)" >
     <h2 id="imgTitle"></h2>
-    <button class="close_button" type="button" onclick="buttonCloseDialog()" tabindex="0">&times;</button>
+    <button class="dialog_close_button" type="button" onclick="buttonCloseDialog()" tabindex="0">&times;</button>
     </header>`;
 }
 
-function dialogHtmlSectionContent() {
-    return `<section  onclick="closeDialogOutsite(event)"><img id="imgModal" class="lagre_img" src="" alt="" title=""></section>`;
+function dialogHtmlSectionContentTpl() {
+    return /*html*/ `<section  onclick="closeDialogOutsite(event)"><img id="imgModal" class="dialog_img" src="" alt="" title=""></section>`;
 }
 
-function getImages(imgListIndex) {
-    return `<a href="#" class="thumbnails_WCAG" onclick="openlargeHolidayImg(this, ${[imgListIndex]})" tabindex="0">
-    <img  class="thumbnails"  src="${holidayImgList[imgListIndex]}" alt="${altText[imgListIndex]}"  title="${titleText[imgListIndex]}" >
-    </img>
-    </a>`;
+function getImagesTpl(imgObjList, index) {
+    return /*html*/ `<a href="#" class="thumbnails_WCAG" onclick="openlargeHolidayImg(this, ${index})" >
+    <img  class="thumbnails"  src="${imgObjList.src}" alt="${imgObjList.alt}" >
+        </a>`;
 }
 
-function dialogfooterHtmlContent() {
-    return `<footer class="arrow_footer" id="dialogFooter">
-    <div  id="arrowContainer" class="arrow_Container" onclick="closeDialogOutsite(event)">
-        <button id="arrowLeft" class="arrow_button" onclick="clickButtonPrevious()" tabindex="0" type="button">&larr;</button>
-        <button id="arrowRight" class="arrow_button" onclick="clickButtonForward()" tabindex="0" type="button">&rarr;</button>
+function dialogfooterHtmlContentTpl() {
+    return /*html*/ `<footer class="dialog_arrow_footer" id="dialogFooter">
+    <div  class="dialog_arrow_container" onclick="closeDialogOutsite(event)">
+        <button id="arrowLeft" class="dialog_arrow_button" onclick="clickButtonPrevious()" tabindex="0" type="button">&larr;</button>
+        <button id="arrowRight" class="dialog_arrow_button" onclick="clickButtonForward()" tabindex="0" type="button">&rarr;</button>
     </div>
 </footer>`;
 }

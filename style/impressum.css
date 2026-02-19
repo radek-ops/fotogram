@@ -5,6 +5,12 @@
      min-height: calc(100vh - 241px);
  }
 
+ .img_fotogram_impressum {
+      display: flex;
+      width: 400px;
+      cursor: pointer;
+  }
+
  .h1_impressum {
      display: flex;
      justify-content: flex-start;

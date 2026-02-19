@@ -1,0 +1,141 @@
+.main-contact {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: calc(100vh - 241px);
+ }
+
+.main_content
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_content_container
+{
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.form_contact
+{
+    width: 420px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    border-radius: 50px;
+    gap: px;
+    background: linear-gradient(45deg, rgba(41, 144, 228, 0.322), rgb(243, 93, 6));
+    box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    font-family: 'Linotte';
+    color: white;
+    margin: 32px;
+    
+
+}
+
+.contact_input
+{
+    display: flex;
+    width: 350px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Linotte';
+    padding: 8px;
+    
+
+}
+
+textarea
+{
+    display: flex;
+    width: 350px;
+    height: 220px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Linotte';
+    padding: 8px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    resize: none;
+
+}
+
+h4
+{
+    display: flex;
+    color: black;
+}
+
+.main_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px 3px var(--link_and_img-color);
+    background-color: var(--primary-color);
+    color: var(--button-arrow-and-close);
+    font-family: 'Linotte';
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 550px) {
+    .form_contact {
+        width: fit-content;
+        min-width: 280px;
+        height: auto;
+        padding: 30px 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact_input {
+        width: 260px;
+        height: 30px;
+    }
+
+    textarea {
+        width: 260px;
+        height: 160px;
+        font-size: 14px;
+    }
+
+    h4 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .main_button {
+        width: 50px;
+        height: 50px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .form_contact {
+        padding: 20px 15px;
+    }
+
+    .contact_input, 
+    textarea {
+        width: 220px;
+    }
+
+    textarea {
+        height: 140px;
+    }
+}
