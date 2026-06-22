@@ -1,3 +1,21 @@
+/**
+ * @file db.js
+ * @description Bilddatenbank für das Fotogram-Fotoalbum.
+ * Enthält ein Array mit Metadaten aller Urlaubsbilder.
+ * @author Radek Gnych
+ */
+
+/**
+ * @typedef {Object} HolidayImage
+ * @property {string} src - Relativer Pfad zum Bild.
+ * @property {string} alt - Alternativtext für Barrierefreiheit (WCAG).
+ * @property {string} title - Anzeigetitel des Bildes mit Jahres- und Ortsangabe.
+ */
+
+/**
+ * Array aller Urlaubsbilder mit Pfad, Alternativtext und Titel.
+ * @type {HolidayImage[]}
+ */
 let holidayData = [
     {
         src: "./img/img_1.jpg",
